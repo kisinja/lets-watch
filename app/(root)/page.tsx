@@ -1,4 +1,6 @@
 import Header from '@/components/Header'
+import VideoCard from '@/components/VideoCard'
+import { dummyCards } from '@/constants'
 
 const Page = () => {
   return (
@@ -7,7 +9,17 @@ const Page = () => {
         title='All Videos'
         subHeader='Public Library'
       />
-      <h1 className='text-2xl font-karla'>Welcome to Loom Clone</h1>
+
+      <section className="video-grid">
+        {
+          dummyCards.map(c => (
+            <VideoCard
+              key={c.id}
+              {...c}
+            />
+          ))
+        }
+      </section>
     </main>
   )
 }
